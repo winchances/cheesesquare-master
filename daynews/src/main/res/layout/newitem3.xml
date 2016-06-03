@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+
+    <ImageView
+        android:id="@+id/item_iv"
+        android:layout_alignParentRight="true"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_menu_camera"/>
+
+
+    <TextView
+        android:id="@+id/item_tv"
+        android:layout_toLeftOf="@id/item_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="他是蒋介石曾孙，职场上最具代表的型男，成就蒋家王朝另一种表述"/>
+
+
+</RelativeLayout>
