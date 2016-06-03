@@ -69,19 +69,19 @@ public class NewsPresenterImp implements NewsPresenter {
                 uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&count=20&min_behot_time=1455594227&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
                 break;
              case NEWS_TYPE_HOTSPOT:
-                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&count=20&min_behot_time=1455594227&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
+                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&category=news_hot&count=20&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
                 break;
              case NEWS_TYPE_TECH:
-                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&count=20&min_behot_time=1455594227&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
+                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&category=news_tech&count=20&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
                 break;
              case NEWS_TYPE_BEJING:
-                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&count=20&min_behot_time=1455594227&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
+                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&category=news_local&count=20&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
                 break;
              case NEWS_TYPE_SOCIETY:
-                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&count=20&min_behot_time=1455594227&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
+                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&category=news_society&count=20&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
                 break;
              case NEWS_TYPE_AMUSE:
-                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&count=20&min_behot_time=1455594227&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
+                uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&category=news_entertainment&count=20&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";
                 break;
              case NEWS_TYPE_CAR:
                 uri="http://ic.snssdk.com/2/article/v14/stream/?detail=1&image=1&count=20&min_behot_time=1455594227&iid=3641392726&device_id=10789635067&ac=wifi&channel=dearclick31&aid=13&app_name=news_article&version_code=330&device_platform=android&device_type=Coolpad%208297&os_api=17&os_version=4.2.2&uuid=863777029390464&openudid=17de2106c58527f4";

@@ -22,6 +22,7 @@ import com.example.daynews.news.presenter.NewsPresenterImp;
 import com.example.daynews.news.view.NewsListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,13 +30,14 @@ import java.util.List;
  */
 public class NewsListFragment extends Fragment implements NewsListView, SwipeRefreshLayout.OnRefreshListener {
 
-    private List<News.DataBean> list;
+    private List<News.DataBean> newslist;
     private int type;
     RecyclerView recycle;
     SwipeRefreshLayout swipe;
     NewsPresenter presenter;
     int typee=0;
 
+    private MyAdapter adapter;
 
 
     public static NewsListFragment newInstance(int type) {
@@ -55,7 +57,7 @@ public class NewsListFragment extends Fragment implements NewsListView, SwipeRef
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_newlist, container, false);
-
+        newslist=new ArrayList<>();
         presenter = new NewsPresenterImp(this,getActivity());
         return view;
 
@@ -75,12 +77,27 @@ public class NewsListFragment extends Fragment implements NewsListView, SwipeRef
         recycle.setHasFixedSize(true);
         recycle.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycle.setItemAnimator(new DefaultItemAnimator());
+        recycle.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL_LIST));
+
+
+        recycle.setAdapter(adapter=new MyAdapter(newslist));
 
         swipe = (SwipeRefreshLayout) view.findViewById(R.id.swipe);
 
+
         swipe.setOnRefreshListener(this);
+        swipe.setColorSchemeResources(R.color.colorPrimary,
+                R.color.colorPrimaryDark, R.color.primary_light,
+                R.color.colorAccent);
 
         onRefresh();
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(News.DataBean nes) {
+
+            }
+        });
 
     }
 
@@ -101,7 +118,8 @@ public class NewsListFragment extends Fragment implements NewsListView, SwipeRef
 
     @Override
     public void addNewsList(List<News.DataBean> list) {
-        recycle.setAdapter(new MyAdapter(list));
+        newslist.addAll(0,list);
+       adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -113,27 +131,20 @@ public class NewsListFragment extends Fragment implements NewsListView, SwipeRef
 
         private List<News.DataBean > list;
 
+        public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+            this.onItemClickListener = onItemClickListener;
+        }
+
+        private OnItemClickListener onItemClickListener;
         public MyAdapter(List<News.DataBean> list) {
             this.list = list;
         }
+
 
         @Override
         public int getItemViewType(int position) {
 
            int flag=-1;
-         /*    News.DataBean dataBean = list.get(position);
-            if(!dataBean.isHas_image()){
-                flag=0;//无图片
-
-            }else if(dataBean.getLarge_image_list()!=null){
-                    flag=1;//大图片
-            }else  if(dataBean.getImage_list()!=null){
-                Log.d("wen","getItemViewType>>>dataBean.getImage_list()"+dataBean.getImage_list().size());
-                    flag=2;//三张图片
-            }else{
-                flag=3;//左边图片
-            }*/
-
             News.DataBean dataBean=  list.get(position);
             if(dataBean.getLarge_image_list()!=null&&dataBean.getLarge_image_list().size()!=0){
                 flag=1;//大图片
@@ -179,7 +190,7 @@ public class NewsListFragment extends Fragment implements NewsListView, SwipeRef
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            News.DataBean bean = list.get(position);
+            final News.DataBean bean = list.get(position);
            if(holder instanceof Type0Holder){
                ((Type0Holder) holder).textView.setText(bean.getTitle());
            }else if(holder instanceof  Type1Holder){
@@ -197,6 +208,15 @@ public class NewsListFragment extends Fragment implements NewsListView, SwipeRef
            }else if( holder instanceof  Type3Holder){
                ((Type3Holder) holder).textView.setText(bean.getTitle());
                ImageLoader.getInstance().displayImage(bean.getMiddle_image().getUrl(),((Type3Holder) holder).imageView);
+           }
+
+           if(onItemClickListener!=null){
+               holder.itemView.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       onItemClickListener.onItemClick(bean);
+                   }
+               });
            }
 
         }
@@ -250,5 +270,9 @@ public class NewsListFragment extends Fragment implements NewsListView, SwipeRef
             textView= (TextView) itemView.findViewById(R.id.item_tv);
             imageView= (ImageView) itemView.findViewById(R.id.item_iv);
         }
+    }
+
+    interface OnItemClickListener{
+        void onItemClick(News.DataBean nes);
     }
 }
